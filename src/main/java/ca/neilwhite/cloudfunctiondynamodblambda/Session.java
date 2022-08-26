@@ -1,6 +1,6 @@
 package ca.neilwhite.cloudfunctiondynamodblambda;
 
-import software.amazon.awssdk.services.dynamodb.model.AttributeValue;
+//import software.amazon.awssdk.services.dynamodb.model.AttributeValue;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -13,6 +13,15 @@ public class Session implements Serializable {
     private List<String> participants;
     private Map<String, Integer> results;
 
+    public Session() {
+
+    }
+    public Session(String sessionId, Long timestamp) {
+        this.sessionId = sessionId;
+        this.timestamp = timestamp;
+    }
+
+/*
     public static Session from(Map<String, AttributeValue> values){
         Session session = new Session();
 
@@ -27,7 +36,7 @@ public class Session implements Serializable {
         session.setResults(results);
 
         return session;
-    }
+    }*/
 
     // constructors, getters & setters
 

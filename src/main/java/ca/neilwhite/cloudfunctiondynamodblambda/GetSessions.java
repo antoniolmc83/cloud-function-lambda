@@ -1,10 +1,11 @@
 package ca.neilwhite.cloudfunctiondynamodblambda;
 
 import org.springframework.stereotype.Component;
-import software.amazon.awssdk.services.dynamodb.DynamoDbClient;
-import software.amazon.awssdk.services.dynamodb.model.AttributeValue;
-import software.amazon.awssdk.services.dynamodb.model.QueryRequest;
+//import software.amazon.awssdk.services.dynamodb.DynamoDbClient;
+//import software.amazon.awssdk.services.dynamodb.model.AttributeValue;
+//import software.amazon.awssdk.services.dynamodb.model.QueryRequest;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -15,11 +16,11 @@ import java.util.stream.Collectors;
 public class GetSessions implements Function<Request, Response> {
 
     private final String tableName;
-    private final DynamoDbClient dynamoDbClient;
+    //private final DynamoDbClient dynamoDbClient;
 
-    public GetSessions(String tableName, DynamoDbClient dynamoDbClient) {
+    public GetSessions(String tableName /*, DynamoDbClient dynamoDbClient*/) {
         this.tableName = tableName;
-        this.dynamoDbClient = dynamoDbClient;
+        //this.dynamoDbClient = dynamoDbClient;
     }
 
     @Override
@@ -27,21 +28,26 @@ public class GetSessions implements Function<Request, Response> {
 
         String userId = request.getUserId().toLowerCase();
 
-        Map<String, AttributeValue> expressionValues = new HashMap<>();
-        expressionValues.put(":userId", AttributeValue.builder().s(userId).build());
+        //Map<String, AttributeValue> expressionValues = new HashMap<>();
+        //expressionValues.put(":userId", AttributeValue.builder().s(userId).build());
 
-        QueryRequest queryRequest = QueryRequest.builder()
+        /*QueryRequest queryRequest = QueryRequest.builder()
                 .tableName(tableName)
                 .keyConditionExpression("userId = :userId")
                 .expressionAttributeValues(expressionValues).build();
+        */
 
+        //List<Map<String, AttributeValue>> queryResponse = dynamoDbClient.query(queryRequest).items();
 
-        List<Map<String, AttributeValue>> queryResponse = dynamoDbClient.query(queryRequest).items();
-
-        List<Session> sessions = queryResponse.isEmpty() ? List.of()
+        /*List<Session> sessions = queryResponse.isEmpty() ? List.of()
                 : queryResponse.stream()
                 .map(Session::from)
                 .collect(Collectors.toList());
+
+         */
+        List<Session> sessions = List.of( new Session( userId, new Date().getTime()),
+                new Session( userId + "-" + tableName, new Date().getTime())  );
+
 
         return new Response(sessions);
     }

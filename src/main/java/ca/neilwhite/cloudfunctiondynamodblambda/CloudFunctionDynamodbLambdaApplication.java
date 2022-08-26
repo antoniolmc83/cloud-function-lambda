@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.nativex.hint.SerializationHint;
 import software.amazon.awssdk.regions.Region;
-import software.amazon.awssdk.services.dynamodb.DynamoDbClient;
+//import software.amazon.awssdk.services.dynamodb.DynamoDbClient;
 
 @SerializationHint(types = {Request.class, Response.class, Session.class})
 @SpringBootApplication
@@ -17,10 +17,13 @@ public class CloudFunctionDynamodbLambdaApplication {
 		SpringApplication.run(CloudFunctionDynamodbLambdaApplication.class, args);
 	}
 
+	/*
 	@Bean
 	public DynamoDbClient dynamoDbClient() {
 		return DynamoDbClient.builder().region(awsRegion).build();
 	}
+
+	 */
 
 	@Bean
 	public String tableName(){
