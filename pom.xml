@@ -19,6 +19,7 @@
 		<spring-cloud.version>2021.0.3</spring-cloud.version>
 		<spring-native.version>0.12.1</spring-native.version>
 		<software.aws-sdk.version>2.17.261</software.aws-sdk.version>
+		<spring-cloud-function-adapter-aws.version>3.2.8</spring-cloud-function-adapter-aws.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -43,7 +44,7 @@
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-function-adapter-aws</artifactId>
-			<version>3.2.1</version>
+			<version>${spring-cloud-function-adapter-aws.version}</version>
 		</dependency>
 <!--
 		<dependency>
@@ -143,7 +144,7 @@
 			<id>native-springintl</id>
 			<properties>
 				<repackage.classifier>exec</repackage.classifier>
-				<native-buildtools.version>0.9.13</native-buildtools.version>
+				<native-buildtools.version>0.9.19</native-buildtools.version>
 			</properties>
 			<dependencies>
 				<dependency>
