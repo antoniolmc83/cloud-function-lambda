@@ -27,6 +27,6 @@ public class CloudFunctionDynamodbLambdaApplication {
 
 	@Bean
 	public String tableName(){
-		return "sessions1";
+		return "sessions2";
 	}
 }

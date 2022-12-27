@@ -16,7 +16,7 @@
 	<properties>
 		<java.version>11</java.version>
 		<repackage.classifier/>
-		<spring-cloud.version>2021.0.3</spring-cloud.version>
+		<spring-cloud.version>2021.0.5</spring-cloud.version>
 		<spring-native.version>0.12.1</spring-native.version>
 		<software.aws-sdk.version>2.19.4</software.aws-sdk.version>
 		<spring-cloud-function-adapter-aws.version>3.2.8</spring-cloud-function-adapter-aws.version>
