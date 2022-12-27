@@ -1,4 +1,4 @@
-package ca.neilwhite.cloudfunctiondynamodblambda;
+package ca.neilwhite.cloudfunctiondynamodblambda.response;
 
 import java.io.Serializable;
 import java.util.List;

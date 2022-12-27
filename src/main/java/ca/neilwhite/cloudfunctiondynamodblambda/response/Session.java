@@ -1,4 +1,4 @@
-package ca.neilwhite.cloudfunctiondynamodblambda;
+package ca.neilwhite.cloudfunctiondynamodblambda.response;
 
 //import software.amazon.awssdk.services.dynamodb.model.AttributeValue;
 

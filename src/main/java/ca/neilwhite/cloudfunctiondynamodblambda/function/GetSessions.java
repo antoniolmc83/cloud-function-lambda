@@ -1,16 +1,16 @@
-package ca.neilwhite.cloudfunctiondynamodblambda;
+package ca.neilwhite.cloudfunctiondynamodblambda.function;
 
+import ca.neilwhite.cloudfunctiondynamodblambda.request.Request;
+import ca.neilwhite.cloudfunctiondynamodblambda.response.Response;
+import ca.neilwhite.cloudfunctiondynamodblambda.response.Session;
 import org.springframework.stereotype.Component;
 //import software.amazon.awssdk.services.dynamodb.DynamoDbClient;
 //import software.amazon.awssdk.services.dynamodb.model.AttributeValue;
 //import software.amazon.awssdk.services.dynamodb.model.QueryRequest;
 
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.function.Function;
-import java.util.stream.Collectors;
 
 @Component
 public class GetSessions implements Function<Request, Response> {

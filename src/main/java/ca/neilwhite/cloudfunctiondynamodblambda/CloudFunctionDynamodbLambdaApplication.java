@@ -1,5 +1,8 @@
 package ca.neilwhite.cloudfunctiondynamodblambda;
 
+import ca.neilwhite.cloudfunctiondynamodblambda.request.Request;
+import ca.neilwhite.cloudfunctiondynamodblambda.response.Response;
+import ca.neilwhite.cloudfunctiondynamodblambda.response.Session;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -27,6 +30,6 @@ public class CloudFunctionDynamodbLambdaApplication {
 
 	@Bean
 	public String tableName(){
-		return "sessions3";
+		return "sessionsRefactored";
 	}
 }
