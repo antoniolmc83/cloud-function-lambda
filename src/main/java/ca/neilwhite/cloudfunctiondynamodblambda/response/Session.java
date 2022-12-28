@@ -12,6 +12,7 @@ public class Session implements Serializable {
     private Long timestamp;
     private List<String> participants;
     private Map<String, Integer> results;
+    private String response;
 
     public Session() {
 
@@ -70,5 +71,13 @@ public class Session implements Serializable {
 
     public void setResults(Map<String, Integer> results) {
         this.results = results;
+    }
+
+    public String getResponse() {
+        return response;
+    }
+
+    public void setResponse(String response) {
+        this.response = response;
     }
 }

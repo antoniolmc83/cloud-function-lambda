@@ -8,6 +8,12 @@ import org.springframework.stereotype.Component;
 //import software.amazon.awssdk.services.dynamodb.model.AttributeValue;
 //import software.amazon.awssdk.services.dynamodb.model.QueryRequest;
 
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
 import java.util.Date;
 import java.util.List;
 import java.util.function.Function;
@@ -45,10 +51,37 @@ public class GetSessions implements Function<Request, Response> {
                 .collect(Collectors.toList());
 
          */
-        List<Session> sessions = List.of( new Session( userId, new Date().getTime()),
-                new Session( userId + "-" + tableName, new Date().getTime())  );
+
+        Session session = new Session( userId, new Date().getTime());
+        session.setResponse( callApi() );
+        List<Session> sessions = List.of( session  );
 
 
         return new Response(sessions);
+    }
+
+    private String callApi()  {
+
+        String resp = null;
+
+        try {
+            HttpRequest request = HttpRequest.newBuilder(new URI("https://dummyjson.com/products/1"))
+                    .GET()
+                    .build();
+
+            HttpClient client = HttpClient.newHttpClient();
+
+            HttpResponse<String> response = client.send( request, HttpResponse.BodyHandlers.ofString() );
+            resp = response.body();
+
+        }catch (Exception e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+            resp = e.getMessage();
+        }
+
+
+
+        return resp;
     }
 }
