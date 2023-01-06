@@ -30,6 +30,6 @@ public class CloudFunctionDynamodbLambdaApplication {
 
 	@Bean
 	public String tableName(){
-		return "sessionsRefactored";
+		return "sessionsUpgraded";
 	}
 }
