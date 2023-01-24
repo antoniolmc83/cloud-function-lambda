@@ -16,9 +16,11 @@ public class DummyService {
 
 
     public List<Session> createService(Request request) {
+        Date date = new Date();
         String userId = request.getUserId().toLowerCase();
-        Session session = new Session( userId, new Date().getTime());
-        session.setResponse( callApi() );
+        Session session = new Session( userId, date.getTime());
+        session.setTimestamp( date.getTime()  );
+        session.setResponse( "v1: " + callApi() );
         List<Session> sessions = List.of( session  );
 
         return sessions;
