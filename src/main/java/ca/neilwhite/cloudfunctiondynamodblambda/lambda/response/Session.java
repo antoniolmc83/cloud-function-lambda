@@ -1,9 +1,8 @@
-package ca.neilwhite.cloudfunctiondynamodblambda.response;
+package ca.neilwhite.cloudfunctiondynamodblambda.lambda.response;
 
 //import software.amazon.awssdk.services.dynamodb.model.AttributeValue;
 
 import java.io.Serializable;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
